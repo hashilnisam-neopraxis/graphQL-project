@@ -1,0 +1,104 @@
+---
+product:
+    videos:
+        limit: {{theme_settings.productpage_videos_count}}
+    reviews:
+        limit: {{theme_settings.productpage_reviews_count}}
+    related_products:
+        limit: {{theme_settings.productpage_related_products_count}}
+    similar_by_views:
+        limit: {{theme_settings.productpage_similar_by_views_count}}
+---
+{{inject 'productId' product.id}}
+
+{{#partial "page"}}
+
+<div class="cm-bundle-builder-wrapper">
+
+    <!-- banner section -->
+    <div class="row row-main">
+        <div class="small-12 large-12 columns main-cover">
+            
+        </div>
+        <div class="sub-cover-container">
+            <div class="sub-cover-container-heading">Icon and superlative.</div>
+            <div class="sub-cover-container-title">In 1974, the 911 Turbo proved that even the dream of a 911 could be taken even further: with a fascinating symbiosis of outstanding performance, confident elegance and pure emotion. Experience its 50th anniversary up close: at the wheel of the 911 Turbo 50 years.</div>
+            <button class="sub-cover-container-button">READ MORE</button>
+        </div>
+    </div>
+    <!-- ---- -->
+    <div class="small-12 large-12 columns">
+        <div class="detail-container-text">
+            The 911 has been raced extensively by private and factory teams, in a variety of classes. It is among the most successful competition cars. In the mid-1970s, the naturally aspirated 911 Carrera RSR won world championship races including Targa Florio and the 24 Hours of Daytona. The 911-derived 935 turbo also won the 24 Hours of Le Mans in 1979. Porsche won the World Championship for Makes in 1976, 1977, 1978, and 1979 with 911-derived models.
+        </div>
+    </div>
+    <!-- Product Detail Page -->
+    <div class="row row-main">
+        <div class="small-12 large-8 columns">
+            <div class="product-image-main">
+                <!-- <img src="/assets/img/porsche_p2.png" alt=""> -->
+            </div>
+        </div>
+        <div class="small-12 large-4 columns pdp-details">
+            <div class="pdp-details">
+                <div class="pdp-name"></div>
+                <div class="pdp-brand"></div>
+                <div class="pdp-price">€506,000.00</div>
+                <div class="pdp-star">&#9733; &#9733; &#9733; &#9733;</div>
+            </div>
+            <hr>
+            <div class="pdp-button-main">
+                <button class="cart-button">Add to Cart</button>
+                <button class="wish-button">Add to Wish List</button>
+            </div>
+        </div>
+    </div>
+    <!-- ---- -->
+
+    <!-- Related Product Page -->
+    <div class="related_products_head">Related Products</div>
+
+    <div class="wrapper">
+        <i id="left" class="fa-solid  fas fa-angle-left"></i>
+        <ul class="carousel">
+            <!-- <li class="card">
+                <div class="img"><img src=
+"/assets/img/porsche_p1.png" 
+                                      alt="" draggable="false"> </div>
+                <div class="slider-head">911 Carrera T</div>
+                <span>Porsche 911</span>
+                <button class="related_products_button">Add to Cart</button>
+            </li> -->
+        </ul>
+        <i id="right" class="fa-solid fas fa-angle-right"></i>
+    </div>
+
+    <div class="related_products_head">Testing Section</div>
+
+    <div class="wrapper">
+        <i id="left" class="fa-solid  fas fa-angle-left"></i>
+        <ul class="carousel">
+            <li class="card">
+                <div class="img"><img src="/assets/img/porsche_p1.png" alt="" draggable="false"></div>
+                <div class="row child-container-image-row">
+                    <div class="small-3 large-3 columns child-container-image"><img src="/assets/img/porsche_p1.png" alt="" draggable="false"></div>
+                    <div class="small-3 large-3 columns child-container-image"><img src="/assets/img/porsche_p2.png" alt="" draggable="false"></div>
+                    <div class="small-3 large-3 columns child-container-image"><img src="/assets/img/porsche_p1.png" alt="" draggable="false"></div>
+                    <div class="small-3 large-3 columns child-container-image"><img src="/assets/img/porsche_p2.png" alt="" draggable="false"></div>
+                  </div>
+                
+                <div class="slider-head">911 Carrera T</div>
+                <span>Porsche 911</span>
+                <button class="related_products_button">Add to Cart</button>
+            </li>
+        </ul>
+        <i id="right" class="fa-solid fas fa-angle-right"></i>
+    </div>
+      
+
+</div>
+
+
+
+{{/partial}}
+{{> layout/base}}
