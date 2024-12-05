@@ -73,7 +73,9 @@ import PageManager from "../../theme/page-manager";
                 .then((data) => {
         
                     console.log(data);
-        
+
+                    // MAIN PRODUCTS SECTION >>>>>>>>>>>><<<<<<<<<<<
+
                     const productDetails = {
                         name: data.data.site.product.name, 
                         imageUrl: data.data.site.product.defaultImage.urlOriginal,
@@ -95,14 +97,16 @@ import PageManager from "../../theme/page-manager";
         
                     const productMsrp =document.querySelector(".pdp-price");
                     productMsrp.innerHTML = `€${productDetails.prices}`;
-        
+
+                    // RELATED PRODUCTS SECTION >>>>>>>>>>>><<<<<<<<<<<
+
                     const relatedProducts = data.data.site.product.relatedProducts.edges.map(edge => ({
                         entityId: edge.node.entityId,
                         name: edge.node.name,
                         imageUrl: edge.node.images.edges.map(imageEdge => imageEdge.node.urlOriginal),
                         brand: edge.node.brand.name,
                     }));
-        
+                    
                     const carousel = document.querySelector('.carousel');
                     
                     relatedProducts.forEach(product => {
@@ -112,57 +116,59 @@ import PageManager from "../../theme/page-manager";
                         const productImage = document.createElement('div');
                         productImage.classList.add('img');
                         const img = document.createElement('img');
-                        img.src = product.imageUrl[0];  // Use the first image for the product
+                        img.classList.add('related-images');
+                        img.src = product.imageUrl[0]; 
                         img.alt = product.name;
                         productImage.appendChild(img);
-        
+                    
                         const childImageRow = document.createElement('div');
                         childImageRow.classList.add('row', 'child-container-image-row');
                         
-                        // Add the child images (first 4 or all, depending on available data)
-                        product.imageUrl.slice(1, 5).forEach(url => {
+                        product.imageUrl.forEach(url => {
                             const childImageDiv = document.createElement('div');
                             childImageDiv.classList.add('small-3', 'large-3', 'columns', 'child-container-image');
                             const childImg = document.createElement('img');
+                            childImg.classList.add('child-img');
                             childImg.src = url;
                             childImg.alt = `Related image ${url}`;
                             childImageDiv.appendChild(childImg);
                             childImageRow.appendChild(childImageDiv);
-        
-                            // Add event listener to change the main image when clicked
+                
                             childImg.addEventListener('click', function() {
-                                const mainImage = document.querySelector(".product-image-main img");
-                                mainImage.src = url; // Change the main image to the clicked child image
+                                const mainImage = productItem.querySelector('.related-images');
+                                if (mainImage) {
+                                    mainImage.src = url;
+                                }
                             });
                         });
-        
+                    
                         const productName = document.createElement('div');
                         productName.classList.add('slider-head');
                         productName.textContent = product.name;
-        
+                    
                         const productBrand = document.createElement('span');
                         productBrand.textContent = product.brand;
-        
+                    
                         const addButton = document.createElement('button');
                         addButton.classList.add('related_products_button');
                         addButton.textContent = 'Add to Cart';
-                        
+                    
                         addButton.onclick = function() {
                             console.log("product id===>", product.entityId);
                             window.location.href = `/cart.php?action=add&product_id=${product.entityId}`;
                         };
-        
+                    
                         productItem.appendChild(productImage);
                         productItem.appendChild(childImageRow);
                         productItem.appendChild(productName);
                         productItem.appendChild(productBrand);
                         productItem.appendChild(addButton);
-        
+                    
                         carousel.appendChild(productItem);
                     });
-        
+                    
                     console.log("relatedProducts====>", relatedProducts);
-        
+
                     document.getElementById('left').addEventListener('click', function() {
                         const carousel = document.querySelector('.carousel');
                         carousel.scrollBy({

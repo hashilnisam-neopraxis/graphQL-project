@@ -1,5 +1,5 @@
 .cm-bundle-builder-wrapper {
-    width: 98.6vw;
+    width: 100vw;
     margin-left: calc(-50vw + 50%);
     padding: 13px;
     overflow-x: hidden;
@@ -84,10 +84,6 @@
     font-size: 30px;
 }
 
-.pdp-button-main {
-    // margin-top: 30px;
-}
-
 .cart-button {
     background-color: #757575;
     border-radius: 5px;
@@ -110,17 +106,18 @@
 .wrapper i {
     height: 50px;
     width: 50px;
-    background: rgba(198, 198, 198, 0.708);
     text-align: center;
     line-height: 50px;
     border-radius: 50%;
     cursor: pointer;
     position: absolute;
-    top: 50%;
-    font-size: 1.25 rem;
+    top: 44%;
     transform: translateY(-50%);
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23);
-
+    z-index: 5;
+    color: #434343 !important;
+    font-size: 25px;
+    background-color: #ffffff8f !important;
 }
 
 .wrapper i:first-child {
@@ -170,7 +167,7 @@
 
 .carousel .card {
     scroll-snap-align: start;
-    height: 340px;
+    height: 360px;
     list-style: none;
     background: #fff;
     border-radius: 8px;
@@ -186,12 +183,10 @@
     padding: 10px;
 }
 
-
-
 .card .img img {
-    width: 250px;
+    width: fit-content;
     height: 150px;
-    object-fit: cover;
+    object-fit: fill;
     border: 4px solid #fff;
 }
 
@@ -227,8 +222,8 @@
 
 .related_products_button {
     background-color: #363636;
-    height: 36px;
-    width: 70px;
+    height: 40px;
+    width: 80px;
     font-size: 12px;
     padding: 0px;
     color: white;
@@ -288,19 +283,40 @@
 
 
 .child-container-image .img img {
-    width: 30px;
-    height: 40px;
+    width: 20px;
+    height: 30px;
     object-fit: cover;
     border: 4px solid #fff;
 }
 
 .child-container-image-row {
-    padding: 10px;
+    padding: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    
 }
 
 .child-container-image {
-    height: 50px;
     padding: 0px;
-    height: 65px;
-    border: solid 1px rgba(0, 0, 0, 0.153);
+    height: 40px;
+    width: max-content;
+    margin: 2px;
+    display: flex;
+    align-items: center;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.child-img {
+    height: 28px !important;
+}
+
+.child-container-image:hover {
+    transition: 0.6s ease;
+    transform: scale(1.2);
+}
+
+.related-images:hover {
+    transition: 0.6s ease;
+    transform: scale(1.1);
 }
